@@ -1,0 +1,34 @@
+<0?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- id is assigned to the value which is passed as argument to getBean() 
+		method class is assigned to value which is model class name for which we 
+		have to create bean -->
+	<bean id="vechical" class="com.telusko.springDemo.Bike"></bean>
+
+	<!-- This is to define Car model class as bean -->
+	<bean id="v" class="com.telusko.springDemo.Car"></bean>
+
+	<!-- This is for annotation based config to scan package with @Component -->
+	<context:component-scan
+		base-package="com.telusko.springDemo"></context:component-scan>
+
+	<!-- Model classes with Variables -->
+	<bean id="tyre" class="com.telusko.springDemo.Tyre">
+		<!-- Here name is Variable name defined inside Model class TYRE, Value is string value 
+		assigning to Varibale brand+++++++++++++++++This is Setter based value injection-->
+		<!-- <property name="brand" value="MRF"></property> -->
+		
+		
+		<!-- -Constructor based injection of variable value -->
+		<constructor-arg value="Ceat"></constructor-arg>
+	</bean>
+
+</beans>
